@@ -1,0 +1,52 @@
+﻿/* Estilos de Login */
+.fondo-imagen {
+    background-image: url(https://i.ibb.co/C6FHmYH/Foto-Hotel-Metro-Aesthetic-Squoosh.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.fondo-imagen .fondo-logo-UDLA {
+    background-image: url(https://i.ibb.co/M1bw2Fj/Logo-UDLA-Blanco.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 15vh;
+    width: 25%;
+}
+
+.login-form {
+    display: flex;
+    padding: 3em;
+    flex-flow: column nowrap;
+    width: 40%;
+    backdrop-filter: blur(7px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2em;
+    border: solid 1px;
+}
+
+.font-raleway-class {
+    font-family: 'Raleway';
+}
+
+@media (max-width: 768px) {
+
+    .width-responsive {
+        width: 100% !important;
+    }
+
+    .fondo-imagen {
+        gap: 0 !important;
+    }
+
+        .fondo-imagen .fondo-logo-UDLA {
+            width: 100%;
+        }
+
+        .fondo-imagen .header-responsive {
+            display: none;
+            visibility: hidden;
+        }
+}

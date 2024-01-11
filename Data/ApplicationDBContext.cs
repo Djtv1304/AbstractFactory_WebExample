@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using AbstractFactory.Models;
+using AbstractFactory.Models.Factorys;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,34 +24,87 @@ namespace AbstractFactory.Data
         }
 
         // Creo la tabla de esta manera en la DB
-        public DbSet<Miembro> Miembro { get; set; }
-        public DbSet<Membresia> Membresia { get; set; }
-        public DbSet<Pago> Pago { get; set; }
-        public DbSet<Visita> Visita { get; set; }
+        public DbSet<MonedaGameboy> MonedaGameboy { get; set; }
+        public DbSet<MonedaNintendoDS> MonedaNintendoDS { get; set; }
+        public DbSet<BloqueInterroganteGameboy> BloqueInterroganteGameboy { get; set; }
+        public DbSet<BloqueInterroganteNintendoDS> BloqueInterroganteNintendoDS { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
         // Agregar datos a través de código con esta función
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Miembro>().HasData(
+            modelBuilder.Entity<MonedaGameboy>().HasData(
 
-                new Miembro
+                new MonedaGameboy
                 {
-                    idMiembro = 1,
-                    nombreMiembro = "Oscar",
-                    idMembresia = 1, // Asigno la membresía Oro a Oscar
-                    apellidoMiembro = "Almeida",
-                    emailMiembro = "oscar.almedia@udla.edu.ec",
-                    fechaInscripcion = DateTime.Parse("2024-03-15")
+                    IdMoneda = 1,
+                    Color = "Dorado",
+                    isStarCoin = true,
+                    Valor = 30
+
+                }
+
+            );
+
+            modelBuilder.Entity<MonedaNintendoDS>().HasData(
+
+                new MonedaNintendoDS
+                {
+
+                    IdMoneda = 1,
+                    Color = "Roja",
+                    isStarCoin = false,
+                    Valor = 60
+
+                }
+
+            );
+
+            modelBuilder.Entity<BloqueInterroganteGameboy>().HasData(
+                
+                new BloqueInterroganteGameboy
+                {
+
+                    IdBloque = 1,
+                    Color = "Dorado",
+                    hasBricks = true,
+                    hasUpgrade = true
+
+                }
+                
+            );
+
+            modelBuilder.Entity<BloqueInterroganteNintendoDS>().HasData(
+                
+                new BloqueInterroganteNintendoDS
+                {
+
+                    IdBloque = 1,
+                    Color = "Rojo",
+                    hasBricks = false,
+                    hasUpgrade = false
+
+                }
+                
+            );
+
+            modelBuilder.Entity<Usuario>().HasData(
+
+                new Usuario
+                {
+                    IdUsuario = 1,
+                    Mail = "admin@admin.com",
+                    Password = "admin"
+
                 },
-                new Miembro
+
+                new Usuario
                 {
-                    idMiembro = 2,
-                    nombreMiembro = "Diego",
-                    idMembresia = 2, // Asigno la membresía Plata a Diego
-                    apellidoMiembro = "Toscano",
-                    emailMiembro = "diego.toscano@udla.edu.ec",
-                    fechaInscripcion = DateTime.Parse("2024-04-15")
+
+                    IdUsuario = 2,
+                    Mail = "diego.toscano@udla.edu.ec",
+                    Password = "f1e3l0i4pe"
+
                 }
 
             );

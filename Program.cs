@@ -1,7 +1,17 @@
+using AbstractFactory.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDBContext>(options =>
+{
+    // Llamo a la cadena de conexión
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConsStr"));
+
+});
 
 var app = builder.Build();
 

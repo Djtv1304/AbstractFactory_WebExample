@@ -3,6 +3,154 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Design Pattern - Abstract Factory</h1>
+
+    <br />
+
+    @if (ViewBag.listaMonedaGameboy != null)
+    {
+        <h3 class="card-title">Monedas de GameBoy</h3>
+        <br />
+
+        foreach (var moneda in ViewBag.listaMonedaGameboy)
+        {
+
+            <div class="card text-center">
+                <div class="card-header">
+                    Moneda N°@moneda.IdMoneda
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Color de la moneda: @moneda.Color</h5>
+                    <p class="card-text">Esta moneda tiene un valor de @moneda.Valor</p>
+                    <p class="card-text">@moneda.Saludar()</p>
+                    @* <a href="#" class="btn btn-primary">Go somewhere</a> *@
+                </div>
+                @if (moneda.isStarCoin)
+                {
+                    <div class="card-footer text-body-secondary">
+                        ¡Estás de suerte, esta moneda contiene una estrella!
+                    </div>
+                }
+            </div>
+
+        }
+
+    }
+
+    <br />
+
+    @if (ViewBag.listaMonedaNintendoDS != null)
+    {
+        <h3 class="card-title">Monedas de NintendoDS</h3>
+        <br />
+
+        foreach (var moneda in ViewBag.listaMonedaNintendoDS)
+        {
+
+            <div class="card text-center">
+                <div class="card-header">
+                    Moneda N°@moneda.IdMoneda
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Color de la moneda: @moneda.Color</h5>
+                    <p class="card-text">Esta moneda tiene un valor de @moneda.Valor</p>
+                    <p class="card-text">@moneda.Saludar()</p>
+                </div>
+                @if (moneda.isStarCoin)
+                {
+                    <div class="card-footer text-body-secondary">
+                        ¡Estás de suerte, esta moneda contiene una estrella!
+                    </div>
+                }
+            </div>
+
+        }
+
+    }
+
+    <br />
+
+    @if (ViewBag.listaBloqueInterroganteGameboy != null)
+    {
+        <h3 class="card-title">Bloques Interrogantes de GameBoy</h3>
+        <br />
+
+        foreach (var bloqueInterrogante in ViewBag.listaBloqueInterroganteGameboy)
+        {
+
+            <div class="card text-center">
+                <div class="card-header">
+                    Bloque N°@bloqueInterrogante.IdBloque
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Color del bloque: @bloqueInterrogante.Color</h5>
+                    @if (bloqueInterrogante.hasBricks)
+                    {
+
+                        <p class="card-text">Atento, este bloque contiene ladrillos!</p>
+
+                    }
+
+                    @if (bloqueInterrogante.hasUpgrade)
+                    {
+
+                       <p class="card-text">Felicidades, este bloque contiene una mejora disponible!</p>
+
+                    }
+                    <p class="card-text">@bloqueInterrogante.useBlock()</p>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    ¡En 60 segundos tendrás otro bloque disponible, vuelve pronto!
+                </div>
+            </div>
+
+        }
+
+    }
+
+    <br/>
+
+    @if (ViewBag.listaBloqueInterroganteNintendoDS != null)
+    {
+        <h3 class="card-title">Bloques Interrogantes de NintendoDS</h3>
+        <br />
+
+        foreach (var bloqueInterrogante in ViewBag.listaBloqueInterroganteNintendoDS)
+        {
+
+            <div class="card text-center">
+                <div class="card-header">
+                    Bloque N°@bloqueInterrogante.IdBloque
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Color del bloque: @bloqueInterrogante.Color</h5>
+                    @if (bloqueInterrogante.hasBricks)
+                    {
+
+                        <p class="card-text">Atento, este bloque contiene ladrillos!</p>
+
+                    }
+
+                    @if (bloqueInterrogante.hasUpgrade)
+                    {
+
+                        <p class="card-text">Felicidades, este bloque contiene una mejora disponible!</p>
+
+                    }
+                    <p class="card-text">@bloqueInterrogante.useBlock()</p>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    ¡En 60 segundos tendrás otro bloque disponible, vuelve pronto!
+                </div>
+            </div>
+
+        }
+
+    }
+
+    <br />
+    <br />
+    <br />
+    <br />
+
 </div>
